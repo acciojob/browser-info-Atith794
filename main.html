@@ -8,6 +8,44 @@
 
 <body>
 	<!-- the entire body must be written by student -->
+	<div id="browser-info">
+<!-- 		<h1>Hai</h1> -->
+	</div>
+	<script>
+        // Function to detect browser and display information
+        function detectBrowser() {
+            // Get user agent string
+            const userAgent = navigator.userAgent;
+            let browserName = "Unknown";
+            let version = "Unknown";
+
+            if (userAgent.indexOf("Firefox") !== -1) {
+                browserName = "Firefox";
+                version = userAgent.match(/Firefox\/(\S+)/)[1];
+            } else if (userAgent.indexOf("Chrome") !== -1) {
+                browserName = "Chrome";
+                version = userAgent.match(/Chrome\/(\S+)/)[1];
+            } else if (userAgent.indexOf("Edge") !== -1) {
+                browserName = "Edge";
+                version = userAgent.match(/Edge\/(\S+)/)[1];
+            } else if (userAgent.indexOf("Safari") !== -1) {
+                browserName = "Safari";
+                version = userAgent.match(/Version\/(\S+).*Safari/)[1];
+            } else if (userAgent.indexOf("Opera") !== -1) {
+                browserName = "Opera";
+                version = userAgent.match(/OPR\/(\S+)/)[1];
+            } else if (userAgent.indexOf("Trident") !== -1) {
+                browserName = "Internet Explorer";
+                version = userAgent.match(/rv:(\S+)/)[1];
+            }
+
+            const browserInfo = `You are using ${browserName} version ${version}.`;
+            document.getElementById('browser-info').innerText = browserInfo;
+        }
+
+        // Call the detectBrowser function when the page loads
+        detectBrowser();
+    </script>
     <script type="text/javascript" src="./script.js">
 </script>
 
